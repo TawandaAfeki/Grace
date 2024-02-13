@@ -232,7 +232,7 @@ body {
 }
 
 .valentine {
-    text-align: center;
+    text-align: relative;
     font-family: Arial, Helvetica, sans-serif;
     color:rgb(20, 20, 20);
     font-size: 70px;
