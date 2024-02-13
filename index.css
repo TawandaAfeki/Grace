@@ -232,7 +232,7 @@ body {
 }
 
 .valentine {
-    text-align: center;
+    text-align: relative;
     font-family: Georgia, 'Times New Roman', Times, serif;
     color: rgba(207, 16, 35, 0.721);
     font-size: 70px;
