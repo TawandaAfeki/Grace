@@ -1,18 +1,63 @@
 <!DOCTYPE html>
 <html>
-    <audio id="background-music" loop autoplay>
-        <source src="baby-make-me.mp3" type="audio/mpeg">
-        <source src="baby-make-me.ogg" type="audio/ogg">
-        Your browser does not support the audio element.
-    </audio>
+
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="index.css" rel="stylesheet">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
         <title>Grace Moya</title>
+
+         <style>
+        #play-prompt {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            z-index: 1000;
+        }
+        
+        #play-button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+    </style>
     </head>
-    <body>    
+    <body> 
+
+        <div id="play-prompt">
+        <p>Click to start music</p>
+        <button id="play-button">▶ Play</button>
+    </div>
+
+    <audio id="background-music" loop>
+        <source src="baby-make-me.mp3" type="audio/mpeg">
+        <source src="baby-make-me.ogg" type="audio/ogg">
+    </audio>
+
+    <script>
+        document.getElementById('play-button').addEventListener('click', function() {
+            const audio = document.getElementById('background-music');
+            const prompt = document.getElementById('play-prompt');
+            
+            audio.play().then(() => {
+                prompt.style.display = 'none';
+            }).catch(e => {
+                console.log('Audio failed to play:', e);
+            });
+        });
+    </script>        
+        
         <h1 class="valentine">Thank you Grace</h1>
         <div class="envelope-wrapper">
             <div id="envelope" class="close">
